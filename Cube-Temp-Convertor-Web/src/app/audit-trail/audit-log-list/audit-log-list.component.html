@@ -1,0 +1,15 @@
+<app-home></app-home>
+<h2>Audit Logs</h2>
+
+<hr/><br/>
+<ul *ngIf="AuditTrailData && AuditTrailData.auditLogs.length > 0; else noLogs">
+    <li *ngFor="let res of AuditTrailData.auditLogs">
+        <div>User: <i>{{res.userName}}</i></div>
+        <div>Recorded: <i>{{res.recordedDateUTC| date: 'dd/MM/yyyy HH:mm'}}</i></div>
+        <div>Event: <i>{{res.data}}</i></div>
+    </li>
+</ul>
+
+<ng-template #noLogs>
+    <p>No Logs Available</p>
+</ng-template>
